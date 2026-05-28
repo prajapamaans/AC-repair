@@ -46,7 +46,7 @@ function initMobileMenu() {
   const toggleMenu = () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-    
+
     // Toggle body scroll lock to prevent scroll behind overlay
     if (navMenu.classList.contains('active')) {
       body.style.overflow = 'hidden';
@@ -74,7 +74,7 @@ function initMobileMenu() {
     dropdownToggle.addEventListener('click', (e) => {
       e.preventDefault();
       const isOpen = dropdownMenu.style.maxHeight && dropdownMenu.style.maxHeight !== '0px';
-      
+
       if (isOpen) {
         dropdownMenu.style.maxHeight = '0px';
       } else {
@@ -122,7 +122,7 @@ function initContactForm() {
     // Reset status
     alertBox.style.display = 'none';
     alertBox.className = 'form-alert';
-    
+
     // Get fields
     const nameInput = document.getElementById('form-name');
     const phoneInput = document.getElementById('form-phone');
@@ -176,13 +176,13 @@ function initContactForm() {
         'lead_source': 'website_form'
       });
     }
-    
+
     // Custom trigger event for tracking
     trackAnalyticsEvent('form_submit', { service: serviceVal });
 
     // Show premium dynamic success message
-    showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your request for ${serviceVal} has been received. Our technician will call you back within 60 minutes. For urgent issues, dial <strong>076989 18030</strong>.`, 'success');
-    
+    showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your request for ${serviceVal} has been received. Our technician will call you back within 60 minutes. For urgent issues, dial <strong>+91 076989 18030</strong>.`, 'success');
+
     // Reset Form
     form.reset();
   });
@@ -191,7 +191,7 @@ function initContactForm() {
     alertBox.innerHTML = message;
     alertBox.className = `form-alert ${type}`;
     alertBox.style.display = 'block';
-    
+
     // Smooth scroll to alert
     alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -229,13 +229,13 @@ function initAnalyticsTracking() {
   let scrolled75 = false;
   window.addEventListener('scroll', () => {
     if (scrolled75) return;
-    
-    const h = document.documentElement, 
-          b = document.body,
-          st = 'scrollTop',
-          sh = 'scrollHeight';
+
+    const h = document.documentElement,
+      b = document.body,
+      st = 'scrollTop',
+      sh = 'scrollHeight';
     const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-    
+
     if (percent >= 75) {
       scrolled75 = true;
       trackAnalyticsEvent('page_scroll_75', { path: window.location.pathname });
@@ -248,7 +248,7 @@ function initAnalyticsTracking() {
  */
 function trackAnalyticsEvent(eventName, params = {}) {
   console.log(`%c[GA4 EVENT] ${eventName}:`, 'color: #1565c0; font-weight: bold;', params);
-  
+
   // If actual analytics script is present, dispatch to it
   if (typeof window.gtag === 'function') {
     window.gtag('event', eventName, params);

@@ -63,56 +63,56 @@ AC repair in Ellora Park      AC repair in Old Padra Road
 Title:       AC Repair & Service in Vadodara | Jyoti AC
 Description: Professional AC repair, AC service, AC installation, foam wash & AMC
              services in Vadodara. Call Jyoti AC for fast doorstep AC solutions.
-             ☎ 076989 18030
+             ☎ +91 076989 18030
 ```
 
 ### AC Repair Page
 ```
 Title:       AC Repair in Vadodara — Same Day Service | Jyoti AC
 Description: Expert AC repair in Vadodara for split & window ACs. Fast technician
-             response, all brands. Call 076989 18030 for same-day AC repair.
+             response, all brands. Call +91 076989 18030 for same-day AC repair.
 ```
 
 ### AC Service Page
 ```
 Title:       AC Service in Vadodara — Professional Cleaning | Jyoti AC
 Description: Professional AC service & cleaning in Vadodara. Annual, seasonal &
-             deep cleaning packages. Book your AC service today — 076989 18030.
+             deep cleaning packages. Book your AC service today — +91 076989 18030.
 ```
 
 ### AC AMC Page
 ```
 Title:       AC AMC Service in Vadodara | Annual Maintenance Contract
 Description: Get AC AMC plans in Vadodara for worry-free air conditioning. Covers
-             servicing, repairs & checkups. Call Jyoti AC — 076989 18030.
+             servicing, repairs & checkups. Call Jyoti AC — +91 076989 18030.
 ```
 
 ### AC Installation Page
 ```
 Title:       AC Installation in Vadodara — Split & Window AC | Jyoti AC
 Description: Professional AC installation in Vadodara for split & window ACs.
-             All brands. Certified technicians. Call 076989 18030.
+             All brands. Certified technicians. Call +91 076989 18030.
 ```
 
 ### AC PCB Repair Page
 ```
 Title:       AC PCB Repair in Vadodara | Circuit Board Fix | Jyoti AC
 Description: AC PCB & circuit board repair in Vadodara. Fix error codes, compressor
-             faults & PCB failures. Expert technicians. ☎ 076989 18030.
+             faults & PCB failures. Expert technicians. ☎ +91 076989 18030.
 ```
 
 ### AC Foam Wash Page
 ```
 Title:       AC Foam Wash in Vadodara — Deep Cleaning Service | Jyoti AC
 Description: AC foam wash & deep cleaning in Vadodara. Remove bacteria, mold &
-             dust buildup. Improves cooling & air quality. Call 076989 18030.
+             dust buildup. Improves cooling & air quality. Call +91 076989 18030.
 ```
 
 ### AC Gas Filling Page
 ```
 Title:       AC Gas Filling in Vadodara | Refrigerant Refill | Jyoti AC
 Description: AC gas filling & refrigerant recharge in Vadodara. Fix poor cooling
-             caused by gas leaks. Certified technicians. ☎ 076989 18030.
+             caused by gas leaks. Certified technicians. ☎ +91 076989 18030.
 ```
 
 ### About Page
@@ -124,9 +124,9 @@ Description: Learn about Jyoti AC — Vadodara's trusted AC repair & service com
 
 ### Contact Page
 ```
-Title:       Contact Jyoti AC Repair & Service Vadodara | ☎ 076989 18030
+Title:       Contact Jyoti AC Repair & Service Vadodara | ☎ +91 076989 18030
 Description: Contact Jyoti AC for AC repair, service & installation in Vadodara.
-             Call 076989 18030 or use our online inquiry form.
+             Call +91 076989 18030 or use our online inquiry form.
 ```
 
 ---

@@ -53,7 +53,7 @@ Each page targets one Vadodara locality with dedicated content.
 H1: AC Repair in [Area Name], Vadodara | Jyoti AC
 Meta title: AC Repair in [Area] Vadodara — Same Day | Jyoti AC
 Meta desc: Looking for AC repair in [Area], Vadodara? Jyoti AC offers fast doorstep
-           service. Call 076989 18030 for same-day AC repair in [Area].
+           service. Call +91 076989 18030 for same-day AC repair in [Area].
 
 Section 1: Hero — "AC Repair & Service in [Area], Vadodara"
 Section 2: Body — 200–300 words mentioning [Area] + services + nearby landmarks
@@ -154,7 +154,7 @@ Content:
 Name, Address, Phone must be **identical** on ALL directories.
 ```
 Name:    Jyoti AC Repair & Service
-Phone:   076989 18030
+Phone:   +91 076989 18030
 City:    Vadodara, Gujarat
 Website: https://jyotiacrepair.com
 ```

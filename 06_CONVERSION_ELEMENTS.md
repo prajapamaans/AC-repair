@@ -20,7 +20,7 @@ Design and layout must make calling/WhatsApp the **easiest action** on every pag
 ### Phone Button
 - Fixed position: bottom-right corner
 - Icon: phone icon (white on blue circle)
-- On mobile: shows "Call Now — 076989 18030" label
+- On mobile: shows "Call Now — +91 076989 18030" label
 - On desktop: icon only (tooltip on hover)
 - Link: `tel:+917698918030`
 - GA4 event: `phone_click`
@@ -66,7 +66,7 @@ Every page must have CTAs in these positions:
 | After any service description | "Call for [Service] in Vadodara" |
 | End of every page | Contact form + phone number |
 
-**Rule:** The phone number `076989 18030` must appear as text (clickable link) at minimum 3 times per page.
+**Rule:** The phone number `+91 076989 18030` must appear as text (clickable link) at minimum 3 times per page.
 
 ---
 
@@ -95,7 +95,7 @@ Submit            [button: "Request Callback →"]
 ```
 
 ### Form Behavior
-- Show success message on submit: "Thank you! We'll call you back shortly. For urgent help, call 076989 18030."
+- Show success message on submit: "Thank you! We'll call you back shortly. For urgent help, call +91 076989 18030."
 - Send email to: contact@jyotiacrepair.com
 - Subject line: `New AC Service Inquiry — [Service] — [Name]`
 - Reply-to: visitor's email if provided
@@ -117,7 +117,7 @@ Priority order — use the most impactful ones above the fold:
 - **Trusted AC Technicians Near You**
 - **Expert AC Repair & Installation Services**
 - **Book AC Service — Fast Response Guaranteed**
-- **Get Your AC Fixed Today — ☎ 076989 18030**
+- **Get Your AC Fixed Today — ☎ +91 076989 18030**
 
 ---
 
@@ -129,7 +129,7 @@ Full-width section between main content sections:
 Background: Dark Blue (#0D47A1) or gradient
 Heading: Need AC Repair in Vadodara? We're Available Now!
 Sub: Same-day service · All brands · Transparent pricing
-Buttons: [📞 Call 076989 18030]  [💬 WhatsApp Us]
+Buttons: [📞 Call +91 076989 18030]  [💬 WhatsApp Us]
 ```
 
 Place this banner:

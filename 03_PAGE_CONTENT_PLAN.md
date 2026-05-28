@@ -10,7 +10,7 @@
 - **H1:** Best AC Repair & Service in Vadodara
 - **Subheading:** Fast, Reliable & Affordable AC Solutions — Doorstep Service Across Vadodara
 - **Body copy:** 1–2 lines max. Example: "Jyoti AC is Vadodara's trusted AC repair company. Same-day service for all brands — LG, Daikin, Voltas, Samsung & more."
-- **CTA Button 1:** 📞 Call Now — 076989 18030 (tel: link, prominent)
+- **CTA Button 1:** 📞 Call Now — +91 076989 18030 (tel: link, prominent)
 - **CTA Button 2:** 💬 WhatsApp Us (opens wa.me/917698918030)
 - **Background:** Hero image of AC technician working (WebP, optimized)
 
@@ -63,7 +63,7 @@
 - **Layout:** 4-column grid of area names (all 20 localities as text links)
   - Each links to future area page (or anchor to contact form for now)
 - All 20 areas: Alkapuri, Manjalpur, Karelibaug, Gotri, Akota, Waghodia Road, Nizampura, Vasna Road, Harni, Fatehgunj, Sayajigunj, New VIP Road, Sama, Subhanpura, Bhayli, Ajwa Road, Makarpura, Tarsali, Ellora Park, Old Padra Road
-- **Closing line:** "Not sure if we cover your area? Call us — 076989 18030"
+- **Closing line:** "Not sure if we cover your area? Call us — +91 076989 18030"
 
 ### Section 7: AC Brands We Handle
 - **H2:** AC Brands We Service in Vadodara
@@ -84,7 +84,7 @@
 ### Section 9: CTA Banner
 - **H2:** Need AC Repair in Vadodara? Call Us Now!
 - **Sub:** Same day service available. Experienced technicians. All brands covered.
-- **CTA Button:** 📞 Call 076989 18030
+- **CTA Button:** 📞 Call +91 076989 18030
 - **Background:** Solid brand blue (#1565C0)
 
 ### Section 10: Contact Form
@@ -96,7 +96,7 @@
   - Area in Vadodara (text)
   - Message (textarea, optional)
   - Submit Button: "Request Callback"
-- **Note:** Below form — "Or call directly: 076989 18030"
+- **Note:** Below form — "Or call directly: +91 076989 18030"
 
 ### Section 11: FAQ Section
 - **H2:** Frequently Asked Questions — AC Repair Vadodara
@@ -219,8 +219,8 @@
 
 ### Section 2: Contact Details (2 columns)
 **Left column — Details:**
-- 📞 Phone: 076989 18030 (click-to-call link)
-- 💬 WhatsApp: 076989 18030 (wa.me link)
+- 📞 Phone: +91 076989 18030 (click-to-call link)
+- 💬 WhatsApp: +91 076989 18030 (wa.me link)
 - 📧 Email: contact@jyotiacrepair.com
 - 🌐 Website: jyotiacrepair.com
 - 🕐 Business Hours: Mon–Sat 9AM–8PM
