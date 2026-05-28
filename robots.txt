@@ -1,0 +1,13 @@
+# Robots.txt for Jyoti AC Repair & Service - jyotiacrepair.com
+# Generated on: 2026-05-28
+
+User-agent: *
+Allow: /
+
+# Disallow search scrapers from crawling administrative or search query results
+Disallow: /*?
+Disallow: /admin/
+Disallow: /private/
+
+# XML Sitemap Location
+Sitemap: https://jyotiacrepair.com/sitemap.xml
