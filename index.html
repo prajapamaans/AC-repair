@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AC Repair & Service in Vadodara | Jyoti AC</title>
   <meta name="description"
-    content="Professional AC repair, AC service, AC installation, foam wash & AMC services in Vadodara. Call Jyoti AC for fast doorstep AC solutions. ☎ +91 076989 18030">
+    content="Professional AC repair, AC service, AC installation, foam wash & AMC services in Vadodara. Call Jyoti AC for fast doorstep AC solutions. ☎ +91 7698918030">
   <link rel="canonical" href="https://jyotiacrepair.com/" />
 
   <!-- Remix Icon CDN -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -51,6 +53,8 @@
     }
   }
   </script>
+ 
+  <link rel="shortcut icon" type="image/x-icon" href="./images/imges/J_logo.png" />
 </head>
 
 <body>
@@ -63,17 +67,17 @@
         <span class="logo-sub">Repair & Service</span>
       </a>
 
-      <button class="hamburger" aria-label="Toggle Menu">
+      <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about-us.html" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
         <li class="nav-item dropdown">
-          <a href="services.html" class="nav-link dropdown-toggle">Services <i class="ri-arrow-down-s-line"></i></a>
+          <a href="services.html" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Our Product <i class="ri-arrow-down-s-line"></i></a>
           <ul class="dropdown-menu">
             <li class="dropdown-item"><a href="ac-repair-vadodara.html">AC Repair</a></li>
             <li class="dropdown-item"><a href="ac-service-vadodara.html">AC Service</a></li>
@@ -92,15 +96,22 @@
 
       <div class="header-right">
         <a href="tel:+917698918030" class="contact-phone-header">
-          <i class="ri-phone-fill"></i> +91 076989 18030
+          <i class="ri-phone-fill"></i> +91 7698918030
         </a>
         <a href="#book-service" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Book Now</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="hero">
+    <!-- Hero Image Slider Background -->
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('./images/imges/img3.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('./images/imges/img1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('./images/imges/img5.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('./images/imges/img6.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('./images/imges/img12.jpeg');"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
         <h1>Best AC Repair & Service in Vadodara</h1>
@@ -108,8 +119,7 @@
         <p class="desc">Jyoti AC is Vadodara's trusted AC repair company. Get same-day doorstep AC servicing,
           installations, gas filling, AMC maintenance, and PCB repairs for all major brands.</p>
         <div class="hero-btns">
-          <a href="tel:+917698918030" class="btn btn-primary"><i class="ri-phone-fill"></i> Call Now: +91 076989
-            18030</a>
+          <a href="tel:+917698918030" class="btn btn-primary"><i class="ri-phone-fill"></i> Call Now: +91 7698918030</a>
           <a href="https://wa.me/917698918030?text=Hi%2C%20I%20need%20AC%20service%20in%20Vadodara"
             class="btn btn-whatsapp" target="_blank"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
         </div>
@@ -173,13 +183,13 @@
               class="ri-arrow-right-line"></i></a>
         </div>
         <div class="about-img-container">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop"
-            class="about-img"
+          <img src="./images/imges/img9.jpeg"
             alt="Certified AC technician troubleshooting a residential air conditioner unit in Vadodara">
           <div class="about-badge">
             <span class="years">10+</span>
             <span class="text">Years of Excellence</span>
           </div>
+          
         </div>
       </div>
     </div>
@@ -197,7 +207,7 @@
       <div class="services-grid">
         <!-- 1. AC Repair -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-tools-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-wrench"></i></div>
           <h3>AC Repair</h3>
           <p>Expert diagnostic checks and cooling troubleshooting for split and window AC units experiencing breakdowns
             or failure.</p>
@@ -205,7 +215,7 @@
         </div>
         <!-- 2. AC Service -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-drop-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-tint"></i></div>
           <h3>AC Service</h3>
           <p>Deep power jet filter washes, drain tray cleaning, and comprehensive checks to boost efficiency and
             performance.</p>
@@ -213,7 +223,7 @@
         </div>
         <!-- 3. AC AMC -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-calendar-todo-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-calendar-check"></i></div>
           <h3>AC AMC Contract</h3>
           <p>Complete worry-free Annual Maintenance Contracts for homes, offices, and corporations including scheduled
             service visits.</p>
@@ -221,7 +231,7 @@
         </div>
         <!-- 4. AC Installation -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-install-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-tools"></i></div>
           <h3>AC Installation</h3>
           <p>Seamless mounting, pipe routing, bracket setups, and fresh installations for new split and window units.
           </p>
@@ -230,7 +240,7 @@
         </div>
         <!-- 5. AC PCB Repair -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-cpu-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-microchip"></i></div>
           <h3>AC PCB Repair</h3>
           <p>Precision micro-soldering and diagnosis for electronic control circuit boards of standard and inverter AC
             units.</p>
@@ -239,7 +249,7 @@
         </div>
         <!-- 6. AC Foam Wash -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-bubble-chart-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-spray-can"></i></div>
           <h3>AC Foam Wash</h3>
           <p>Deep antibacterial foam cleansing that strips away tough grease, mold, and odor-causing bacteria from
             internal coils.</p>
@@ -248,7 +258,7 @@
         </div>
         <!-- 7. AC Gas Filling -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-contrast-drop-2-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-gas-pump"></i></div>
           <h3>AC Gas Filling</h3>
           <p>High-grade refrigerant leak detection, pressure testing, and precision gas refilling (R32, R410, R22) for
             cold airflow.</p>
@@ -257,7 +267,7 @@
         </div>
         <!-- 8. Split AC Repair -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-computer-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-snowflake"></i></div>
           <h3>Split AC Repair</h3>
           <p>Specialized cooling and indoor/outdoor unit repair services tailored for multi-split and high-wall split
             inverter models.</p>
@@ -266,7 +276,7 @@
         </div>
         <!-- 9. Window AC Repair -->
         <div class="service-card">
-          <div class="service-card-icon"><i class="ri-layout-grid-fill"></i></div>
+          <div class="service-card-icon"><i class="fas fa-window-restore"></i></div>
           <h3>Window AC Repair</h3>
           <p>Comprehensive compressor, fan motor, and grill diagnostics for heavy-duty window-mounted air conditioners.
           </p>
@@ -369,7 +379,7 @@
         </div>
 
         <p class="areas-outro">Don't see your specific locality listed? No worries! Call us at <a
-            href="tel:+917698918030" style="color: var(--primary-blue); font-weight: 700;">+91 076989 18030</a> to
+            href="tel:+917698918030" style="color: var(--primary-blue); font-weight: 700;">+91 7698918030</a> to
           verify coverage.</p>
       </div>
     </div>
@@ -384,19 +394,34 @@
           manufacturers.</p>
       </div>
 
-      <div class="brands-row">
-        <div class="brand-logo-card"><span class="brand-text">LG</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Daikin</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Voltas</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Blue Star</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Hitachi</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Samsung</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Panasonic</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Carrier</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Lloyd</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Whirlpool</span></div>
+      <div class="brands-slider-container">
+        <div class="brands-slider-track">
+          <!-- Original set of 10 brands -->
+          <div class="brand-logo-card"><img src="./images/logo/lg.png" alt="LG Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Daikin.png" alt="Daikin Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/voltas.png" alt="Voltas Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/bluestar.png" alt="Blue Star Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Hitachi.png" alt="Hitachi Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/samgsung.png" alt="Samsung Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/panasonic.png" alt="Panasonic Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/carrer.png" alt="Carrier Logo"></div>
+          <div class="brand-logo-card"><span class="brand-text" style="color: #e53935; font-family: var(--font-headings); font-weight: 800; font-size: 20px; letter-spacing: 1.5px; margin: 0;">LLOYD</span></div>
+          <div class="brand-logo-card"><img src="./images/logo/whirpool.png" alt="Whirlpool Logo"></div>
+          
+          <!-- Duplicated set of 10 brands for seamless infinite loop -->
+          <div class="brand-logo-card"><img src="./images/logo/lg.jpeg" alt="LG Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Daikin.jpeg" alt="Daikin Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/voltas.jpeg" alt="Voltas Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/bluestar.jpeg" alt="Blue Star Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Hitachi.png" alt="Hitachi Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/samgsung.jpg" alt="Samsung Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/panasonic.png" alt="Panasonic Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/carrer.jpeg" alt="Carrier Logo"></div>
+          <div class="brand-logo-card"><span class="brand-text" style="color: #e53935; font-family: var(--font-headings); font-weight: 800; font-size: 20px; letter-spacing: 1.5px; margin: 0;">LLOYD</span></div>
+          <div class="brand-logo-card"><img src="./images/logo/whirpool.png" alt="Whirlpool Logo"></div>
+        </div>
       </div>
-      <p class="text-center text-medium" style="font-size: 14px; font-weight: 500;">* Note: We service all other local
+      <p class="text-center text-medium" style="font-size: 14px; font-weight: 500; margin-top: 10px;">* Note: We service all other local
         and imported air conditioner brands. Reach out for validation.</p>
     </div>
   </section>
@@ -455,6 +480,93 @@
             </div>
           </div>
         </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+              class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"Fast and friendly service. The AC technician fixed my window unit and explained
+            the
+            maintenance steps clearly. I appreciated the prompt follow-up call."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Seema Desai</h4>
+              <p>Vasna Road, Vadodara</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+              class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"I booked an AMC service and they arrived exactly on time. Their team cleaned the
+            coils,
+            replaced the filters, and now my AC is cooling better than before. Great value."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Ravi Singh</h4>
+              <p>Sayajigunj, Vadodara</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+              class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"Very impressed with the customer care. They found the refrigerant leak quickly
+            and
+            refilled the gas at a fair price. The AC feels much stronger now."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Neha Patel</h4>
+              <p>Akota, Vadodara</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+              class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"Excellent maintenance support. They also gave helpful tips to avoid future
+            breakdowns. Our split AC now runs quietly and efficiently."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Vijay Kumar</h4>
+              <p>Fatehgunj, Vadodara</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+              class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"They handled a large commercial AC installation with care and speed. The team
+            arrived with all the right tools and completed the job without disrupting our office hours."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Anjali Shah</h4>
+              <p>Alkapuri, Vadodara</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+              class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"Friendly, experienced, and efficient. I was happy with the service call and how
+            clearly they described the repair. My AC has never been quieter."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Sunita Joshi</h4>
+              <p>Makarpura, Vadodara</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -466,7 +578,7 @@
         <h2>Need Emergency Same-Day AC Repair?</h2>
         <p>Don't sweat this summer! Book our professional doorstep technician visit right now.</p>
         <div class="cta-banner-btns">
-          <a href="tel:+917698918030" class="btn btn-orange"><i class="ri-phone-fill"></i> Call +91 076989 18030</a>
+          <a href="tel:+917698918030" class="btn btn-orange"><i class="ri-phone-fill"></i> Call +91 7698918030</a>
           <a href="https://wa.me/917698918030?text=Hi%2C%20I%20need%20AC%20service%20in%20Vadodara"
             class="btn btn-whatsapp" target="_blank"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
         </div>
@@ -531,8 +643,8 @@
         </form>
 
         <p style="text-align: center; margin-top: 15px; font-size: 14px;" class="text-medium">
-          Or Call Directly: <a href="tel:+917698918030" style="font-weight: 700; color: var(--primary-blue);">+91 076989
-            18030</a>
+          Or Call Directly: <a href="tel:+917698918030" style="font-weight: 700; color: var(--primary-blue);">+91
+            7698918030</a>
         </p>
       </div>
     </div>
@@ -678,7 +790,7 @@
             </div>
             <div class="footer-contact-item">
               <i class="ri-phone-fill"></i>
-              <span><a href="tel:+917698918030">+91 076989 18030</a></span>
+              <span><a href="tel:+917698918030">+91 7698918030</a></span>
             </div>
             <div class="footer-contact-item">
               <i class="ri-mail-fill"></i>
@@ -711,13 +823,13 @@
       class="sticky-action-btn btn-wa" target="_blank" data-tooltip="WhatsApp Chat">
       <i class="ri-whatsapp-line"></i>
     </a>
-    <a href="tel:+917698918030" class="sticky-action-btn btn-call" data-tooltip="Call +91 076989 18030">
+    <a href="tel:+917698918030" class="sticky-action-btn btn-call" data-tooltip="Call +91 7698918030">
       <i class="ri-phone-fill"></i>
     </a>
   </div>
 
   <!-- Main Interaction Scripts -->
-  <script src="script.js"></script>
+  <script src="script.js?v=1.2"></script>
 </body>
 
 </html>

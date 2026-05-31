@@ -1,21 +1,28 @@
-/**
- * Jyoti AC Repair & Service - Main Site Interactions
- * Author: Antigravity Codebase Assistant
- * Last Updated: 2026-05-28
- */
+// /
+//  * Jyoti AC Repair & Service - Main Site Interactions
+//  * Author: Antigravity Codebase Assistant
+//  * Last Updated: 2026-05-28
+//  */
 
-document.addEventListener('DOMContentLoaded', () => {
+const init = () => {
   initStickyHeader();
   initMobileMenu();
   initFaqAccordions();
   initContactForm();
   initAnalyticsTracking();
-});
+  initHeroSlider();
+};
 
-/**
- * 1. Sticky Header Animation
- * Shrinks header height and adds background-blur on scroll
- */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// /
+//   * 1. Sticky Header Animation
+//     * Shrinks header height and adds background - blur on scroll
+//       */
 function initStickyHeader() {
   const header = document.querySelector('.header');
   if (!header) return;
@@ -32,61 +39,135 @@ function initStickyHeader() {
   checkScroll(); // Check once on page load in case page was refreshed scrolled
 }
 
-/**
- * 2. Mobile Menu Toggle & Navigation Overlay
- */
+// /
+//   * 2. Mobile Menu Toggle & Navigation Overlay
+//     */
 function initMobileMenu() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+  const dropdown = document.querySelector('.dropdown');
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
   const body = document.body;
 
-  if (!hamburger || !navMenu) return;
+  if (!hamburger || !navMenu) {
+    console.warn('[Jyoti AC] Mobile Menu components not found.');
+    return;
+  }
 
-  const toggleMenu = () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+  // Set initial accessibility states
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-controls', 'nav-menu');
+  if (dropdownToggle) {
+    dropdownToggle.setAttribute('aria-haspopup', 'true');
+    dropdownToggle.setAttribute('aria-expanded', 'false');
+  }
 
-    // Toggle body scroll lock to prevent scroll behind overlay
-    if (navMenu.classList.contains('active')) {
+  const toggleMenu = (forceState) => {
+    const willOpen = typeof forceState === 'boolean' ? forceState : !navMenu.classList.contains('active');
+
+    if (willOpen) {
+      hamburger.classList.add('active');
+      navMenu.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
       body.style.overflow = 'hidden';
     } else {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       body.style.overflow = '';
+
+      // Close dropdown if mobile menu closes
+      if (dropdown && dropdown.classList.contains('active-open')) {
+        closeDropdown();
+      }
     }
   };
 
-  hamburger.addEventListener('click', toggleMenu);
+  const toggleDropdown = (forceState) => {
+    if (!dropdown || !dropdownToggle || !dropdownMenu) return;
+    const willOpen = typeof forceState === 'boolean' ? forceState : !dropdown.classList.contains('active-open');
+
+    if (willOpen) {
+      dropdown.classList.add('active-open');
+      dropdownToggle.setAttribute('aria-expanded', 'true');
+      if (window.innerWidth <= 768) {
+        dropdownMenu.style.maxHeight = '500px';
+      }
+    } else {
+      closeDropdown();
+    }
+  };
+
+  const closeDropdown = () => {
+    if (!dropdown || !dropdownToggle || !dropdownMenu) return;
+    dropdown.classList.remove('active-open');
+    dropdownToggle.setAttribute('aria-expanded', 'false');
+    dropdownMenu.style.maxHeight = '0px';
+  };
+
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleMenu();
+  });
+
+  // Toggling services dropdown on click (mobile tap & desktop keyboard/click support)
+  if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleDropdown();
+    });
+  }
 
   // Close mobile menu when a direct link is clicked
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      if (navMenu.classList.contains('active')) {
-        toggleMenu();
-      }
+      toggleMenu(false);
     });
   });
 
-  // Mobile Dropdown toggling
-  const dropdownToggle = document.querySelector('.dropdown-toggle');
-  const dropdownMenu = document.querySelector('.dropdown-menu');
+  // Click outside menu / dropdown closure
+  document.addEventListener('click', (e) => {
+    const target = e.target;
 
-  if (dropdownToggle && dropdownMenu && window.innerWidth <= 768) {
-    dropdownToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isOpen = dropdownMenu.style.maxHeight && dropdownMenu.style.maxHeight !== '0px';
+    if (navMenu.classList.contains('active') && !navMenu.contains(target) && !hamburger.contains(target)) {
+      toggleMenu(false);
+    }
 
-      if (isOpen) {
-        dropdownMenu.style.maxHeight = '0px';
-      } else {
+    if (dropdown && dropdown.classList.contains('active-open') && !dropdown.contains(target)) {
+      closeDropdown();
+    }
+  });
+
+  // Escape key closure for accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      toggleMenu(false);
+      closeDropdown();
+    }
+  });
+
+  // Clean transition states on resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      if (body.style.overflow === 'hidden') {
+        body.style.overflow = '';
+      }
+      if (dropdownMenu) {
+        dropdownMenu.style.maxHeight = '';
+      }
+    } else {
+      if (dropdown && dropdown.classList.contains('active-open') && dropdownMenu) {
         dropdownMenu.style.maxHeight = '500px';
       }
-    });
-  }
+    }
+  });
 }
 
-/**
- * 3. FAQ Accordion Toggle Actions
- */
+// /
+//   * 3. FAQ Accordion Toggle Actions
+//     */
 function initFaqAccordions() {
   const faqHeaders = document.querySelectorAll('.faq-header');
 
@@ -107,99 +188,98 @@ function initFaqAccordions() {
   });
 }
 
-/**
- * 4. Client-side Form Validation and Premium Success Animation
- */
+// /
+//   * 4. Client - side Form Validation and Premium Success Animation
+//     */
 function initContactForm() {
   const form = document.getElementById('inquiry-form');
   const alertBox = document.getElementById('form-alert');
 
   if (!form || !alertBox) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Reset status
     alertBox.style.display = 'none';
     alertBox.className = 'form-alert';
 
-    // Get fields
     const nameInput = document.getElementById('form-name');
     const phoneInput = document.getElementById('form-phone');
     const serviceInput = document.getElementById('form-service');
     const areaInput = document.getElementById('form-area');
     const messageInput = document.getElementById('form-message');
 
-    // Validation
     const nameVal = nameInput ? nameInput.value.trim() : '';
     const phoneVal = phoneInput ? phoneInput.value.trim() : '';
     const serviceVal = serviceInput ? serviceInput.value : '';
 
-    // Regex check
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
-    const phoneRegex = /^[0-9]{10}$/; // standard Indian mobile format (10 digits)
+    const phoneRegex = /^[0-9]{10}$/;
 
     if (!nameRegex.test(nameVal)) {
       showFormMessage('Please enter a valid name (letters & spaces only, 2-50 characters).', 'error');
-      nameInput.focus();
+      if (nameInput) nameInput.focus();
       return;
     }
 
     if (!phoneRegex.test(phoneVal)) {
       showFormMessage('Please enter a valid 10-digit mobile number (numbers only).', 'error');
-      phoneInput.focus();
+      if (phoneInput) phoneInput.focus();
       return;
     }
 
     if (!serviceVal || serviceVal === 'Select Service...') {
       showFormMessage('Please select the service you are looking for.', 'error');
-      serviceInput.focus();
+      if (serviceInput) serviceInput.focus();
       return;
     }
 
-    // Capture submission data (simulated lead submit)
     const leadData = {
       name: nameVal,
       phone: phoneVal,
       service: serviceVal,
       area: areaInput ? areaInput.value.trim() : '',
-      message: messageInput ? messageInput.value.trim() : '',
-      timestamp: new Date().toISOString()
+      message: messageInput ? messageInput.value.trim() : ''
     };
 
-    console.log('%c Lead Captured Successfully!', 'color: #25d366; font-weight: bold;', leadData);
-
-    // Trigger simulated Google Analytics Event
-    if (window.gtag) {
-      window.gtag('event', 'generate_lead', {
-        'service_category': leadVal,
-        'lead_source': 'website_form'
-      });
+    const submitButton = form.querySelector('[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.innerHTML : null;
+    if (submitButton) {
+      submitButton.setAttribute('disabled', 'disabled');
+      submitButton.innerHTML = 'Processing...';
     }
 
-    // Custom trigger event for tracking
-    trackAnalyticsEvent('form_submit', { service: serviceVal });
-
-    // Show premium dynamic success message
-    showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your request for ${serviceVal} has been received. Our technician will call you back within 60 minutes. For urgent issues, dial <strong>+91 076989 18030</strong>.`, 'success');
-
-    // Reset Form
-    form.reset();
+    try {
+      saveLeadLocally(leadData);
+      showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your request has been received. We will contact you shortly.`, 'success');
+      form.reset();
+    } catch (err) {
+      console.error('Form submission error:', err);
+      showFormMessage('There was an error processing your request. Please try again.', 'error');
+    } finally {
+      if (submitButton) {
+        submitButton.removeAttribute('disabled');
+        if (originalButtonText) submitButton.innerHTML = originalButtonText;
+      }
+    }
   });
+
+  function saveLeadLocally(leadData) {
+    const storedLeads = JSON.parse(localStorage.getItem('ac_leads') || '[]');
+    storedLeads.push({
+      ...leadData,
+      submittedAt: new Date().toISOString()
+    });
+    localStorage.setItem('ac_leads', JSON.stringify(storedLeads));
+  }
 
   function showFormMessage(message, type) {
     alertBox.innerHTML = message;
     alertBox.className = `form-alert ${type}`;
     alertBox.style.display = 'block';
-
-    // Smooth scroll to alert
     alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
-
-/**
- * 5. Google Analytics 4 Simulation & Tracker
- */
 function initAnalyticsTracking() {
   // Select all links and elements to track
   const callLinks = document.querySelectorAll('a[href^="tel:"]');
@@ -243,9 +323,9 @@ function initAnalyticsTracking() {
   });
 }
 
-/**
- * Simulated GA4 event logger in development
- */
+// /
+//   * Simulated GA4 event logger in development
+//     */
 function trackAnalyticsEvent(eventName, params = {}) {
   console.log(`%c[GA4 EVENT] ${eventName}:`, 'color: #1565c0; font-weight: bold;', params);
 
@@ -254,3 +334,24 @@ function trackAnalyticsEvent(eventName, params = {}) {
     window.gtag('event', eventName, params);
   }
 }
+
+// /
+//   * 6. Hero Section Background Image Slider (cross-fade every 5 seconds)
+//     */
+function initHeroSlider() {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length === 0) return;
+
+  let currentSlide = 0;
+  const slideInterval = 5000; // 5 seconds
+
+  const nextSlide = () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  };
+
+  setInterval(nextSlide, slideInterval);
+}
+
+

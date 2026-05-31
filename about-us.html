@@ -36,6 +36,7 @@
     ]
   }
   </script>
+  <link rel="shortcut icon" type="image/x-icon" href="./images/imges/J_logo.png" />
 </head>
 
 <body>
@@ -48,17 +49,17 @@
         <span class="logo-sub">Repair & Service</span>
       </a>
 
-      <button class="hamburger" aria-label="Toggle Menu">
+      <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item active"><a href="about-us.html" class="nav-link">About Us</a></li>
+        <li class="nav-item active"><a href="about-us.html" class="nav-link">About</a></li>
         <li class="nav-item dropdown">
-          <a href="services.html" class="nav-link dropdown-toggle">Services <i class="ri-arrow-down-s-line"></i></a>
+          <a href="services.html" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Our Product <i class="ri-arrow-down-s-line"></i></a>
           <ul class="dropdown-menu">
             <li class="dropdown-item"><a href="ac-repair-vadodara.html">AC Repair</a></li>
             <li class="dropdown-item"><a href="ac-service-vadodara.html">AC Service</a></li>
@@ -77,7 +78,7 @@
 
       <div class="header-right">
         <a href="tel:+917698918030" class="contact-phone-header">
-          <i class="ri-phone-fill"></i> +91 076989 18030
+          <i class="ri-phone-fill"></i> +91 7698918030
         </a>
         <a href="contact-us.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Book Now</a>
       </div>
@@ -103,7 +104,7 @@
           <p>Vadodara's leading air conditioning specialist providing high-performance cooling maintenance, same-day
             repairs, and diagnostic excellence since 2015.</p>
           <div class="cta-group">
-            <a href="tel:+917698918030" class="btn btn-primary"><i class="ri-phone-fill"></i> Call +91 076989 18030</a>
+            <a href="tel:+917698918030" class="btn btn-primary"><i class="ri-phone-fill"></i> Call +91 7698918030</a>
             <a href="contact-us.html" class="btn btn-secondary">Get in Touch</a>
           </div>
         </div>
@@ -118,9 +119,9 @@
   <!-- OUR STORY -->
   <section class="section-padding">
     <div class="container">
-      <div class="about-split" style="grid-template-columns: 0.9fr 1.1fr;">
+      <div class="about-split-alt">
         <div class="about-img-container" style="order: 2;">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop"
+          <img src="./images/imges/img6.jpeg"
             class="about-img" alt="Professional technician servicing a heavy-duty commercial HVAC unit">
         </div>
         <div style="order: 1;">
@@ -175,6 +176,18 @@
           <p>From prompt response booking to after-service diagnostic checks, we put our customers' comfort above all
             other operational priorities.</p>
         </div>
+        <div class="why-card">
+          <div class="why-card-icon" style="color: var(--primary-blue);"><i class="ri-hand-heart-fill"></i></div>
+          <h3>Safety</h3>
+          <p>We follow strict safety best practices and sanitization protocols at every home and business site visit.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon" style="color: var(--primary-blue);"><i class="ri-checkbox-circle-fill"></i></div>
+          <h3>Transparency</h3>
+          <p>Clear job estimates, detailed inspection reports, and no hidden charges at any stage of your AC service.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -204,7 +217,7 @@
           </ul>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=600&auto=format&fit=crop"
+          <img src="./images/imges/img3.jpg"
             class="about-img"
             alt="Professional engineer with tablet performing structural checks in an industrial cooling bay">
         </div>
@@ -221,17 +234,32 @@
           manufacturers.</p>
       </div>
 
-      <div class="brands-row">
-        <div class="brand-logo-card"><span class="brand-text">LG</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Daikin</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Voltas</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Blue Star</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Hitachi</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Samsung</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Panasonic</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Carrier</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Lloyd</span></div>
-        <div class="brand-logo-card"><span class="brand-text">Whirlpool</span></div>
+      <div class="brands-slider-container">
+        <div class="brands-slider-track">
+          <!-- Original set of 10 brands -->
+          <div class="brand-logo-card"><img src="./images/logo/lg.png" alt="LG Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Daikin.png" alt="Daikin Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/voltas.png" alt="Voltas Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/bluestar.png" alt="Blue Star Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Hitachi.png" alt="Hitachi Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/samgsung.png" alt="Samsung Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/panasonic.png" alt="Panasonic Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/carrer.png" alt="Carrier Logo"></div>
+          <div class="brand-logo-card"><span class="brand-text" style="color: #e53935; font-family: var(--font-headings); font-weight: 800; font-size: 20px; letter-spacing: 1.5px; margin: 0;">LLOYD</span></div>
+          <div class="brand-logo-card"><img src="./images/logo/whirpool.png" alt="Whirlpool Logo"></div>
+          
+          <!-- Duplicated set of 10 brands for seamless infinite loop -->
+          <div class="brand-logo-card"><img src="./images/logo/lg.jpeg" alt="LG Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Daikin.jpeg" alt="Daikin Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/voltas.jpeg" alt="Voltas Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/bluestar.jpeg" alt="Blue Star Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/Hitachi.png" alt="Hitachi Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/samgsung.jpg" alt="Samsung Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/panasonic.png" alt="Panasonic Logo"></div>
+          <div class="brand-logo-card"><img src="./images/logo/carrer.jpeg" alt="Carrier Logo"></div>
+          <div class="brand-logo-card"><span class="brand-text" style="color: #e53935; font-family: var(--font-headings); font-weight: 800; font-size: 20px; letter-spacing: 1.5px; margin: 0;">LLOYD</span></div>
+          <div class="brand-logo-card"><img src="./images/logo/whirpool.png" alt="Whirlpool Logo"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -243,7 +271,7 @@
         <h2>Ready to Experience Premium Doorstep Cooling Service?</h2>
         <p>Book our certified engineer today. Same-day visits are active across all of Vadodara.</p>
         <div class="cta-banner-btns">
-          <a href="tel:+917698918030" class="btn btn-orange"><i class="ri-phone-fill"></i> Call +91 076989 18030</a>
+          <a href="tel:+917698918030" class="btn btn-orange"><i class="ri-phone-fill"></i> Call +91 7698918030</a>
           <a href="https://wa.me/917698918030?text=Hi%2C%20I%20need%20AC%20service%20in%20Vadodara"
             class="btn btn-whatsapp" target="_blank"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
         </div>
@@ -303,7 +331,7 @@
             </div>
             <div class="footer-contact-item">
               <i class="ri-phone-fill"></i>
-              <span><a href="tel:+917698918030">+91 076989 18030</a></span>
+              <span><a href="tel:+917698918030">+91 7698918030</a></span>
             </div>
             <div class="footer-contact-item">
               <i class="ri-mail-fill"></i>
@@ -336,13 +364,14 @@
       class="sticky-action-btn btn-wa" target="_blank" data-tooltip="WhatsApp Chat">
       <i class="ri-whatsapp-line"></i>
     </a>
-    <a href="tel:+917698918030" class="sticky-action-btn btn-call" data-tooltip="Call +91 076989 18030">
+    <a href="tel:+917698918030" class="sticky-action-btn btn-call" data-tooltip="Call +91 7698918030">
       <i class="ri-phone-fill"></i>
     </a>
   </div>
 
   <!-- Main Interaction Scripts -->
-  <script src="script.js"></script>
+  <script src="script.js?v=1.2"></script>
 </body>
 
 </html>
+
