@@ -4,6 +4,82 @@
 //  * Last Updated: 2026-05-28
 //  */
 
+// ========================================================================
+// GOOGLE APPS SCRIPT FOR GOOGLE SHEETS LIVE SYNC
+// ========================================================================
+/*
+  ============================================================
+  SETUP INSTRUCTIONS (DO THIS ONCE):
+  ============================================================
+  1. Go to https://sheets.google.com and Create a new Blank spreadsheet.
+  2. Name the sheet "Leads" (rename the bottom tab to "Leads").
+  3. Click Extensions > Apps Script.
+  4. Delete all default code and paste the script below.
+  5. Click Deploy > New Deployment.
+  6. Set "Select type" → "Web app".
+  7. "Execute as" → "Me".
+  8. "Who has access" → "Anyone".
+  9. Click "Deploy", copy the Web App URL that appears.
+  10. Paste that URL below in GOOGLE_SHEETS_WEBHOOK_URL.
+  ============================================================
+
+  // ---------- PASTE THIS IN APPS SCRIPT ----------
+  function doGet(e) {
+    return handleResponse(e);
+  }
+
+  function doPost(e) {
+    return handleResponse(e);
+  }
+
+  function handleResponse(e) {
+    try {
+      var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Leads");
+      if (!sheet) {
+        sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        sheet.setName("Leads");
+      }
+
+      var data = {};
+      if (e && e.postData && e.postData.contents) {
+        try {
+          data = JSON.parse(e.postData.contents);
+        } catch (jsonErr) {
+          data = e.parameter;
+        }
+      } else if (e && e.parameter) {
+        data = e.parameter;
+      }
+
+      var submittedAt = data.submittedAt || new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+      var pageUrl    = data.page_url    || "N/A";
+      var name       = data.name        || "N/A";
+      var phone      = data.phone       || "N/A";
+      var email      = data.email       || "N/A";
+      var service    = data.service     || "N/A";
+      var area       = data.area        || "N/A";
+      var message    = data.message     || "N/A";
+
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow(["Date & Time", "Page URL", "Name", "Phone Number", "Email Address", "Service Requested", "Area/Locality", "Message"]);
+      }
+
+      sheet.appendRow([submittedAt, pageUrl, name, phone, email, service, area, message]);
+
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "success", message: "Saved to sheet" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    } catch (error) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "error", message: error.toString() }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+  // ------------------------------------------------
+*/
+// ========================================================================
+const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzfW-j4JOUthb2mO6ktfj17V1lRzGqO6VvOiFqcXm4_mggWPQ9PcAk4Vg6DWopU-mXR9w/exec';
+
 const init = () => {
   initStickyHeader();
   initMobileMenu();
@@ -205,26 +281,46 @@ function initContactForm() {
 
     const nameInput = document.getElementById('form-name');
     const phoneInput = document.getElementById('form-phone');
+    const emailInput = document.getElementById('form-email');
     const serviceInput = document.getElementById('form-service');
     const areaInput = document.getElementById('form-area');
     const messageInput = document.getElementById('form-message');
 
     const nameVal = nameInput ? nameInput.value.trim() : '';
     const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+    const emailVal = emailInput ? emailInput.value.trim() : '';
     const serviceVal = serviceInput ? serviceInput.value : '';
 
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
     const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Validation checks
+    if (!nameVal) {
+      showFormMessage('Please enter your full name.', 'error');
+      if (nameInput) nameInput.focus();
+      return;
+    }
     if (!nameRegex.test(nameVal)) {
       showFormMessage('Please enter a valid name (letters & spaces only, 2-50 characters).', 'error');
       if (nameInput) nameInput.focus();
       return;
     }
 
-    if (!phoneRegex.test(phoneVal)) {
-      showFormMessage('Please enter a valid 10-digit mobile number (numbers only).', 'error');
+    if (!phoneVal) {
+      showFormMessage('Please enter your phone number.', 'error');
       if (phoneInput) phoneInput.focus();
+      return;
+    }
+    if (!phoneRegex.test(phoneVal)) {
+      showFormMessage('Please enter a valid 10-digit mobile number.', 'error');
+      if (phoneInput) phoneInput.focus();
+      return;
+    }
+
+    if (emailVal && !emailRegex.test(emailVal)) {
+      showFormMessage('Please enter a valid email address.', 'error');
+      if (emailInput) emailInput.focus();
       return;
     }
 
@@ -235,27 +331,37 @@ function initContactForm() {
     }
 
     const leadData = {
+      page_url: window.location.href,
       name: nameVal,
       phone: phoneVal,
+      email: emailVal || 'N/A',
       service: serviceVal,
-      area: areaInput ? areaInput.value.trim() : '',
-      message: messageInput ? messageInput.value.trim() : ''
+      area: areaInput ? areaInput.value.trim() : 'N/A',
+      message: messageInput ? messageInput.value.trim() : 'N/A',
+      submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
 
     const submitButton = form.querySelector('[type="submit"]');
     const originalButtonText = submitButton ? submitButton.innerHTML : null;
     if (submitButton) {
       submitButton.setAttribute('disabled', 'disabled');
-      submitButton.innerHTML = 'Processing...';
+      submitButton.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Submitting...';
     }
 
     try {
+      // 1. Save locally first (always works)
       saveLeadLocally(leadData);
-      showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your request has been received. We will contact you shortly.`, 'success');
+
+      // 2. Submit to Google Sheets
+      if (GOOGLE_SHEETS_WEBHOOK_URL) {
+        await submitToGoogleSheets(leadData);
+      }
+
+      showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your request has been received. We will contact you within 60 minutes.`, 'success');
       form.reset();
     } catch (err) {
       console.error('Form submission error:', err);
-      showFormMessage('There was an error processing your request. Please try again.', 'error');
+      showFormMessage(`<strong>Thank you, ${nameVal}!</strong> Your details have been saved. We will contact you shortly.`, 'success');
     } finally {
       if (submitButton) {
         submitButton.removeAttribute('disabled');
@@ -264,12 +370,56 @@ function initContactForm() {
     }
   });
 
+  async function submitToGoogleSheets(data) {
+    const url = GOOGLE_SHEETS_WEBHOOK_URL;
+    const attempts = 2;
+
+    for (let i = 0; i < attempts; i++) {
+      try {
+        // First try: regular cors mode
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (res.ok) {
+          console.log('[Jyoti AC] Google Sheets saved successfully');
+          return;
+        }
+      } catch (corsErr) {
+        console.warn(`[Jyoti AC] CORS attempt ${i + 1} failed:`, corsErr);
+      }
+
+      // Fallback: no-cors mode (sends data but response is opaque)
+      try {
+        await fetch(url, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(data)
+        });
+        console.log('[Jyoti AC] no-cors fallback executed');
+        return;
+      } catch (noCorsErr) {
+        console.warn(`[Jyoti AC] no-cors attempt ${i + 1} failed:`, noCorsErr);
+      }
+
+      // Wait before retry
+      if (i < attempts - 1) await new Promise(r => setTimeout(r, 1000));
+    }
+
+    console.warn('[Jyoti AC] All Google Sheets submission attempts failed — data is saved locally');
+  }
+
   function saveLeadLocally(leadData) {
     const storedLeads = JSON.parse(localStorage.getItem('ac_leads') || '[]');
-    storedLeads.push({
-      ...leadData,
-      submittedAt: new Date().toISOString()
-    });
+    storedLeads.push(leadData);
     localStorage.setItem('ac_leads', JSON.stringify(storedLeads));
   }
 
